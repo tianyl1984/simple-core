@@ -1,0 +1,2 @@
+
+mvn deploy -DaltDeploymentRepository=tianyl-mvn-repo::default::file://d:/tianyl-mvn-repo

@@ -90,8 +90,10 @@ public class ClassUtil {
 			}
 			if (prefix != null && jarEntryName.endsWith(".class")) {
 				if (prefix.equals(pkgName)) {
+					clazzName = clazzName.substring(0, clazzName.length() - 6);
 					addClassName(clazzList, clazzName, annotation);
 				} else if (isRecursive && prefix.startsWith(pkgName)) {
+					clazzName = clazzName.substring(0, clazzName.length() - 6);
 					// 遍历子包名：子类
 					addClassName(clazzList, clazzName, annotation);
 				}

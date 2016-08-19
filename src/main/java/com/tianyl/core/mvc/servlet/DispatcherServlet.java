@@ -20,7 +20,6 @@ import com.tianyl.core.ioc.ApplicationContext;
 import com.tianyl.core.mvc.annotation.Controller;
 import com.tianyl.core.util.clazz.ClassUtil;
 import com.tianyl.core.util.clazz.MethodParamNamesScaner;
-import com.tianyl.core.util.log.LogManager;
 
 public class DispatcherServlet extends HttpServlet {
 
@@ -30,10 +29,6 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// set logger name
-		String loggerName = config.getServletContext().getInitParameter("loggerName");
-		LogManager.LOGGER_NAME = loggerName;
-
 		String basePackage = config.getInitParameter("basePackage");
 		List<Class<?>> controllerClazz = ClassUtil.getClassList(basePackage, true, Controller.class);
 		for (Class<?> clazz : controllerClazz) {

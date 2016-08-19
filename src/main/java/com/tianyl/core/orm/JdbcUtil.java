@@ -17,6 +17,10 @@ import com.tianyl.core.util.StringUtil;
 
 public class JdbcUtil {
 
+	private static String url;
+	private static String username;
+	private static String password;
+
 	static {
 		String driver = "com.mysql.jdbc.Driver";
 		try {
@@ -25,6 +29,12 @@ public class JdbcUtil {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static void init(String url, String username, String password) {
+		JdbcUtil.url = url;
+		JdbcUtil.username = username;
+		JdbcUtil.password = password;
 	}
 
 	public static Integer save(String sql, Object... args) {
@@ -160,8 +170,8 @@ public class JdbcUtil {
 	}
 
 	private static Connection getConnection() throws SQLException {
-		String url = "jdbc:mysql://127.0.0.1:3306/weixin?useUnicode=true&characterEncoding=utf-8";
-		Connection conn = DriverManager.getConnection(url, "root", "tyl123");
+		// String url = "jdbc:mysql://127.0.0.1:3306/weixin?useUnicode=true&characterEncoding=utf-8";
+		Connection conn = DriverManager.getConnection(url, username, password);
 		return conn;
 	}
 

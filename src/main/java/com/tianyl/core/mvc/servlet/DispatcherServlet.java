@@ -53,7 +53,10 @@ public class DispatcherServlet extends HttpServlet {
 		commonSet(req, resp);
 		String uri = req.getRequestURI();
 		String ctxPath = req.getContextPath();
-		String path = uri.substring(ctxPath.length(), uri.length());
+		if (ctxPath == "") {
+			ctxPath = "/";
+		}
+		String path = uri.substring(ctxPath.length() + 1, uri.length());
 		Object controller = null;
 		String methodStr = null;
 		for (String key : controllerMap.keySet()) {

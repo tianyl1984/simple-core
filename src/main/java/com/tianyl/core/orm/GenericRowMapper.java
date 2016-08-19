@@ -46,7 +46,7 @@ public class GenericRowMapper<T> implements RowMapper<T> {
 			if (col != null) {
 				temp = col.value();
 			}
-			if (temp.equals(column)) {
+			if (temp.equalsIgnoreCase(column)) {
 				f.setAccessible(true);
 				try {
 					f.set(model, value);

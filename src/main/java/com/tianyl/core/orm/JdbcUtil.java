@@ -348,4 +348,14 @@ public class JdbcUtil {
 		return ts.isEmpty() ? null : ts.get(0);
 	}
 
+	public static <T> Page<T> queryPage(String sql, Page<T> page,Class<T> clazz, Object... args) {
+		String countSql = "select count(1) cnt from (" + sql + ") as a";
+		Integer totalSize = queryIntOne(countSql, args);
+		page.setTotalSize(totalSize);
+		String querySql = sql + " limit " + page.getOffset() + "," + page.getPageSize();
+		List<T> data = query(querySql, new GenericRowMapper<>(clazz), args);
+		page.setData(data);
+		return page;
+	}
+
 }

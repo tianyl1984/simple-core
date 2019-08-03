@@ -2,7 +2,7 @@
 
 simple&tiny framework
 
-##usage
+## usage
 
 add github custom repository
 

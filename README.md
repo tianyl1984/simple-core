@@ -1,11 +1,12 @@
 # simple-core
 
-极简单、轻量级开发框架。
+simple&tiny framework
 
-##使用方式
+##usage
 
-添加仓库
+add github custom repository
 
+```xml
 	<repositories>
 		<repository>
 			<id>tianyl-repo</id>
@@ -13,16 +14,17 @@
 			<url>https://raw.githubusercontent.com/tianyl1984/maven-repo/master</url>
 		</repository>
 	</repositories>
+```
 
-添加依赖
-
+add the dependency
+```xml
 	<dependency>
 		<groupId>com.tianyl</groupId>
 		<artifactId>simple-core</artifactId>
 		<version>0.0.1</version>
 	</dependency>
+```
 
-	
 
 
 
